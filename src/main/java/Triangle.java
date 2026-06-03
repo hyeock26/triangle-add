@@ -131,12 +131,25 @@ public class Triangle
 	 * also be isosceles.
 	 * @return true if one angle is a right angle, otherwise false.
 	 */
-	public boolean isRightAngled()
-	{
-		int[] sides = new int[] { side1, side2, side3 };
+	public boolean isRightAngled() {
 
-		return sides[2]
-			== Math.sqrt((long) sides[0] * sides[0] + (long) sides[1] * sides[1]);
+    int a = side1;
+    int b = side2;
+    int c = side3;
+
+    int max = Math.max(a, Math.max(b, c));
+
+    int x, y;
+
+    if (max == a) {
+        x = b; y = c;
+    } else if (max == b) {
+        x = a; y = c;
+    } else {
+        x = a; y = b;
+    }
+
+    return max * max == x * x + y * y;
 	}
 
 	
