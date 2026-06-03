@@ -19,4 +19,15 @@ public class TriangleTest {
         Triangle t = new Triangle(4, 5, 3);
         assertEquals("right-angled", t.classify());
     } //scalene 로 나옴 => 직각삼각형 조건 수정
+    @Test
+    void scalene() {
+        Triangle t = new Triangle(2, 3, 4);
+        assertEquals("scalene", t.classify());
+}
+    @Test
+    void impossible() {
+        Triangle t = new Triangle(1, 2, 3);
+        assertEquals("impossible", t.classify());
+    } //불가능한 삼각형이 scalene 으로 나옴 => 불가능한 삼각형 조건 수정
+    
 }
