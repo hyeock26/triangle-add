@@ -98,31 +98,25 @@ public class Triangle
 	 * </ul>
 	 * @return type of the triangle as a string.
 	 */
-	public String classify()
-{
-    if (isImpossible())
-    {
-        return P_IMPOSSIBLE;
+	public String classify() {
+
+    if (isImpossible()) {
+        return "impossible";
     }
 
-    if (side1 == side2 || side2 == side3 || side1 == side3)
-    {
-        if (side1 == side2 && side2 == side3)
-        {
-            return P_EQUILATERAL;
-        }
-        else
-        {
-            return P_ISOSCELES;
-        }
+    if (side1 == side2 && side2 == side3) {
+        return "equilateral";
     }
 
-    if (isRightAngled())
-    {
-        return P_RIGHTANGLED;
+    if (isRightAngled()) {
+        return "right-angled";
     }
 
-    return P_SCALENE;
+    if (side1 == side2 || side2 == side3 || side1 == side3) {
+        return "isosceles";
+    }
+
+    return "scalene";
 }
 
 	
