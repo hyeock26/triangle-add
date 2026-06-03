@@ -19,7 +19,7 @@ public class Triangle
 {
 	private int side1, side2, side3;
 	private static final String P_EQUILATERAL = "equilateral";
-	private static final String P_ISOSCELES   = "isossceles";
+	private static final String P_ISOSCELES   = "isosceles";
 	private static final String P_RIGHTANGLED = "right-angled";
 	private static final String P_SCALENE     = "scalene";
 	private static final String P_IMPOSSIBLE  = "impossible";
@@ -99,31 +99,31 @@ public class Triangle
 	 * @return type of the triangle as a string.
 	 */
 	public String classify()
-	{
-		if (isImpossible())
-		{
-			return P_IMPOSSIBLE;
-		}
+{
+    if (isImpossible())
+    {
+        return P_IMPOSSIBLE;
+    }
 
-		if (side1 == side2)
-		{
-			if (side2 == side3)
-			{
-				return P_EQUILATERAL;
-			}
-			else
-			{
-				return P_ISOSCELES;
-			}
-		}
+    if (side1 == side2 || side2 == side3 || side1 == side3)
+    {
+        if (side1 == side2 && side2 == side3)
+        {
+            return P_EQUILATERAL;
+        }
+        else
+        {
+            return P_ISOSCELES;
+        }
+    }
 
-		if (isRightAngled())
-		{
-			return P_RIGHTANGLED;
-		}
+    if (isRightAngled())
+    {
+        return P_RIGHTANGLED;
+    }
 
-		return P_SCALENE;
-	}
+    return P_SCALENE;
+}
 
 	
 	/**
