@@ -117,9 +117,44 @@ public class Triangle
     }
 
     return "scalene";
-}
+	}
 
-	
+	public String getTypeFlags() {
+
+    if (isImpossible()) {
+        return P_IMPOSSIBLE;
+    }
+
+    StringBuilder sb = new StringBuilder();
+
+    // equilateral
+    if (side1 == side2 && side2 == side3) {
+        sb.append(P_EQUILATERAL).append(",");
+    }
+
+    // isosceles (equilateral 포함)
+    if (side1 == side2 || side2 == side3 || side1 == side3) {
+        sb.append(P_ISOSCELES).append(",");
+    }
+
+    // right-angled
+    if (isRightAngled()) {
+        sb.append(P_RIGHTANGLED).append(",");
+    }
+
+    // scalene
+    if (side1 != side2 && side2 != side3 && side1 != side3) {
+        sb.append(P_SCALENE).append(",");
+    }
+
+    // 마지막 , 제거
+    if (sb.length() > 0) {
+        sb.setLength(sb.length() - 1);
+    }
+
+    return sb.toString();
+	}
+		
 	/**
 	 * Checks if the triangle is right-angled. Note: right-angled triangle may
 	 * also be isosceles.
